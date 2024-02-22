@@ -1,0 +1,174 @@
+
+I plan to launch an web application that will enable students to learn all the important subject and questions that may be asked in the real entrance examination. The fees of the institution are skyrocketing and they are ripping off students with their proprietary entrance examination mock tests. So, this website will allow students to prepare for their entrance exam without any cost. But we need to maintain and manage our website, so we might offer some features that are not that important for a test practitioner, but will give them extra insights on their weakness so that they can improve upon it.
+
+Guest Mode
+- Does not track anything, clients give exam and leave. Just the score he/she got is available to see after the exam ends
+- No sign in required.
+- Google Ads for revenue
+
+Basic Tier
+- Will store user account info securely in our cloud encrypted.
+- Will save the information and progress of the student in the cloud.
+- Student can go back and see their history
+- Access Leaderboard
+- Ads when not in exam mode
+
+Premium Tier
+- You can donate from Rs. 5 - Rs. 100 per month if you are from Nepal and using internal payment systems. We know everyone cannot afford fees, so you don't need to upgrade. But upgrading helps us pay for the server and cloud.
+- If you are paying with VISA/MASTERCARD $5 per month or $50 annually.
+- Detailed Insights on your strength and weakness.
+
+
+Sign In Screen:
+
+Will contain Login box:
+		User: _______________
+		Password: ______________
+				Forgot Password?
+					
+					New User? Sign In
+
+								Guest Mode
+
+Explanation:
+		We don't plan to use any heavy design on the login screen. It should be simple. We may add a brand logo later.
+
+		User: Could be Phone number or email. Email verification or Phone verification may be required.
+		Password: Minimum of eight digits.
+			Requirements:
+				1. Must contain small letter
+				2. Must contain capital letter
+				3. Must contain a number
+				4. Must contain a symbol
+
+		Later on, Biometric verificaton can be added for the phone, so no sign in is required
+
+		Forgot password will allow you to reset your password.
+		
+		Guest Mode will ask you nothing, and you would be in. But nothing is saved, and as soon as you close the app, everything is lost.
+
+		-----------------------------------------------------------------
+
+		New User:
+			On Registration:
+			Name: ____   Middle Name: ____	Last Name:____
+			""" Name would not display on public profile without user authorization. But it might be helpful for us for our Research and Development when we know how many of our user succeeded in cracking the exam."""
+			Gender: {Male, Female, Others, Prefer Not to Say}
+			DOB: {MM/DD/YY} format to be stored, but collected as in format {JUL, 01, 2000}, because there might be confusion on DD/MM/YY and MM/DD/YY. Will be used for Research and Development.
+			Email: {Conditional}
+			Phone: {Conditional}
+			""" One of email or phone is required for registration."""
+			Area of Interest: {IOM, IOE, CMAT, Others} To be asked to customize the dashboad for the users.
+			
+			That should be it. Payment plan can be found on Dashboard.
+		---------------------------------------------------------------------
+		
+		Dashboard:
+		Will contain Materials to Study:
+			- Segregated by Chapters
+			- Taken from Multiple Books and explained it easily.
+			- Should be used as a note, not as a regular textbook
+			- We just offer service, and your progress depends upon your work not only on our site, but also yourself.
+			
+		Quiz Mode:
+			Classic Mode:
+				- Exam Format MCQs with x hours of time mimicing the real examination
+					- Good for students to practice managing there time for real examination
+					- Multiple classic examination will give you general idea of how you are going to fare against your competitor, which can be seen on the leaderboard.
+			Blitz Mode:
+				- Exam format MCQs that don't need any calculation but just sere memorization. Good for tackling biology and chemistry question where memorization of certain topic is important.
+				- Helps candidate save time in real examination so that they can focus their time in other hard questions.
+			""Planning to have a log of time taken to solve in classic mode, so that if there are questions where 100 students are solving it in very fast time, but average time is slow, we can open a
+			thread to discuss the ideas that can be shared.""
+			
+		Weekly Marathon:
+			Every week, on x day, on x time. It will be weekly examination that can be taken at once, by all. Exam code is required for Basic Users and Guests. This will be mock test prepared by the professionals,
+			so that the questions look legit. We need to pay the professionals for their time, so that we plan to collect Rs. 5 or 5 cents in dollar for users paying locally, or $1 for credit card users.
+			Free for Premium Users.
+		--------------------------------------------------------------------------
+		
+		Leaderboards & Ratings
+			Will display the top 100 and your rank.
+			This will give you estimate on how others are doing.
+			Can follow other users, and see their profile or chat, if they allow.
+			
+			Leaderboard will be based on the Ratings. Ratings are calculated as a formula:
+				30 t5 + 25 t4 + 20 t3 + 15 t2 + 10 t1 = 100 T
+				
+				where,
+					t5 - Last test score
+					t4 - Second last test score
+					t3 - Third last test score
+					t2 - Fourth last test score
+					t1 - Fifth last test score
+					T - Your Rating
+					
+				There would be no conditional rating if there are less than 5 tests.
+				Last 5 test is important metrics because it can show the trend of progress of a person.
+				
+		--------------------------------------------------------------------------------
+		Detailed ReportCard
+		SpiderChart or Star Chart, that shows the strength of a person across different subjects. Your progress are highlighted in red, and there is also ideal candidate progress. So, that you know your target.
+		
+		I will post the picture later, but the picture can be seen on the idea.pdf attached in github repository.
+		------------------------------------------------------------------------------
+		
+		Improvements:
+		Because we track every questions that an user did wrong, we will feed the same questions to the user later for review and learning, so that they can understand their mistake. We will also feed similar question
+		 to them, so that they can improve overall on that area.
+		 I am planning to have this as a feature itself available on dashboard, but only for premium user, or may be even free based on the traffic on the app. We don't want to make money, but don't want to lose either.
+		---------------------------------------------------------------------------
+		
+		Structure of the Question Identifier.
+		
+		Any questions posted will have the unique ID stored in our server. This enables us to put any questions on the specific chapter on specific subtopic so that the learning experience is optimized.
+		
+		The question will follow this format:
+				# ABC-D-EF-G-H123
+				Where,
+				ABC - Code of the examination like IOE, IOM, etc. If more than 3 digits, we will store it in 3 digits like CMST can be CMS
+				D - Superiority of question? 1 - Was it asked before in real IOM exam? 2 -No, but was it asked in mock exam? 3 - No but important to study? 4 - May ask
+				EF - Code of subject. PY - may be Physics, BT - may be Botany.
+				G - Sub Topic
+				H123 - Alpha numeric identifier of question number so that we can store 25999 questions under one subtopic. That is more than enough for someone to master the subtopic.
+		Why this format of storage is important?
+			Look at the example:
+				#IOM-1-PY-C-A231
+				
+				This identifer will generate question {A231 - question no. 1231} from subtopic {C -lets say Thermodynamics} from {Physics} that {was asked in IOM exam}
+				
+				This gives us information about question type based on the unique serial number itself. This will be important for our users if they want to practice a specific subtopics.
+				Lets say, Ram wants to study Thermodynamics, so we can pull them all the questions with the subtopic C so that he can study and improve on that area.
+				
+		-----------------------------------------------------------------------------------
+		Tracking Every Question is important:
+			- When a question is asked on the mock exam, we can see that how many student came up with the correct answer and how many chosed the wrong one.
+			- This will help us generate the strengh of questions based on the success rate.
+			- Could be asked as question of the day.
+			- When the user signs in to review certain chapters, questions with the highest success rate would be asked first followed by increasing difficulty.
+		-------------------------------------------------------------------------------------
+		Pnuemonics - Based on reputation. The pneumonics with most likes are placed on top, so that everyone learns the popular pneumonics. If some pneumonics has more likes, they could be promoted as superpneumonics
+		which could be must learn for all.
+		Could be posted as a blog page too.
+		----------------------------------------------------------------------------------------
+		To be added:
+		
+		
+		
+		
+		_______________________________________________________
+		
+		Plans:
+		- Develop a framework to lay for Android phones, as we are focusing on Nepal right now, and people prefer Android than other devices.
+		- Will also launch an web app, so that the real examination feel can be made for IOE students.
+		-----------------------------------------------------------------------------------------
+		Any recommendation and volunteering could be sent to:
+		businessmanujjwal@gmail.com
+		sahbikash999@gmail.com
+		----------------------------------------------------------------------------------------
+		We will also encourage people to participate in this journey. We would need:
+		Software developers Interns
+		DBMS Interns
+		
+				
+
