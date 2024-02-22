@@ -26,7 +26,7 @@ Will contain Login box:
 		Password: ______________
 				Forgot Password?
 					
-					New User? Sign In
+					New User? Sign Up
 
 								Guest Mode
 
